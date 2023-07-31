@@ -1,15 +1,15 @@
 <template>
 	<div class="wrapper">
 		<img src="../assets/images/neovox_logo.svg" alt="" />
-		<div class="navBar">
-			<a> Запуск опроса </a>
-			<a> Заказы </a>
-			<a> Отчеты </a>
-			<a> События </a>
-			<a> Квесты </a>
-			<a> Товары </a>
-			<a> Верификация </a>
-			<a> Администрирование </a>
+		<div class="navBar" @click="goAnotherPage($event.target)">
+			<a data-anchor-name="startQuiz"> Запуск опроса </a>
+			<a data-anchor-name="orders"> Заказы </a>
+			<a data-anchor-name="reports"> Отчеты </a>
+			<a data-anchor-name="events"> События </a>
+			<a data-anchor-name="quests"> Квесты </a>
+			<a data-anchor-name="goods"> Товары </a>
+			<a data-anchor-name="verification"> Верификация </a>
+			<a data-anchor-name="administration"> Администрирование </a>
 			<a @click="$router.push('/')">
 				<span class="mr-1">Выход</span>
 				<v-icon size="medium" icon="mdi-exit-to-app"></v-icon>
@@ -21,6 +21,21 @@
 <script>
 	export default {
 		name: 'my-navbar',
+		methods: {
+			goAnotherPage(target) {
+				/* 
+					делегирование события клика на дочерние компоненты в навигационном меню 
+				*/
+
+				const element = target.closest('[data-anchor-name]');
+				console.dir(element);
+
+				if (element) {
+					const route = target.dataset.anchorName;
+					this.$router.push(`/${route}`);
+				}
+			},
+		},
 	};
 </script>
 

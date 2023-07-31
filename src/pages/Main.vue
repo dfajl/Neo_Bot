@@ -1,34 +1,29 @@
 <template>
 	<my-navbar></my-navbar>
 	<div class="buttonLinksWrapper">
-		<div class="buttonColumn">
+		<div class="buttonColumn" @click="goAnotherPage($event.target)">
 			<v-btn
-				@click="$router.push('/main')"
 				elevation="24"
-				class="mt-1 bgColor font-weight-bold"
+				data-btn-header="true"
+				class="mt-1 bgColor font-weight-bold cursor"
 			>
 				Контроль геймификации
 			</v-btn>
+			<v-btn data-btn-name="quests" elevation="2" class="mt-8 bgColor">
+				Квесты
+			</v-btn>
+			<v-btn data-btn-name="goods" elevation="2" class="mt-6 bgColor">
+				Товары
+			</v-btn>
 			<v-btn
-				@click="$router.push('/main')"
-				elevation="2"
-				class="mt-8 bgColor"
-			>
-				Квесты </v-btn
-			><v-btn
-				@click="$router.push('/main')"
+				data-btn-name="verification"
 				elevation="2"
 				class="mt-6 bgColor"
 			>
-				Товары </v-btn
-			><v-btn
-				@click="$router.push('/main')"
-				elevation="2"
-				class="mt-6 bgColor"
-			>
-				Верификация </v-btn
-			><v-btn
-				@click="$router.push('/main')"
+				Верификация
+			</v-btn>
+			<v-btn
+				data-btn-name="administration"
 				elevation="2"
 				class="mt-6 bgColor"
 			>
@@ -38,40 +33,28 @@
 		<div class="imgWrapper">
 			<img src="../assets/images/bot_and_neo.png" alt="" />
 		</div>
-		<div class="buttonColumn">
+		<div class="buttonColumn" @click="goAnotherPage($event.target)">
 			<v-btn
-				@click="$router.push('/main')"
 				elevation="24"
-				class="mt-1 bgColor font-weight-bold"
+				class="mt-1 bgColor font-weight-bold cursor"
+				data-btn-header="true"
 			>
 				Администрирование бота
 			</v-btn>
 			<v-btn
-				@click="$router.push('/main')"
+				data-btn-name="startQuiz"
 				elevation="2"
 				class="mt-8 bgColor w-20"
 			>
 				Запуск опроса
 			</v-btn>
-			<v-btn
-				@click="$router.push('/main')"
-				elevation="2"
-				class="mt-6 bgColor"
-			>
+			<v-btn data-btn-name="orders" elevation="2" class="mt-6 bgColor">
 				Заказы
 			</v-btn>
-			<v-btn
-				@click="$router.push('/main')"
-				elevation="2"
-				class="mt-6 bgColor"
-			>
+			<v-btn data-btn-name="reports" elevation="2" class="mt-6 bgColor">
 				Отчеты
 			</v-btn>
-			<v-btn
-				@click="$router.push('/main')"
-				elevation="2"
-				class="mt-6 bgColor"
-			>
+			<v-btn data-btn-name="events" elevation="2" class="mt-6 bgColor">
 				События
 			</v-btn>
 		</div>
@@ -85,6 +68,29 @@
 			MyNavbar,
 		},
 		name: 'my-main',
+		methods: {
+			goAnotherPage(target) {
+				/* 
+					делегирование события клика на дочерние компоненты в колонках с кнопками div class="buttonColumn" 
+				*/
+				const targetInnerText = target.innerText;
+
+				let isColumnHeader;
+				switch (targetInnerText) {
+					case 'АДМИНИСТРИРОВАНИЕ БОТА':
+					case 'КОНТРОЛЬ ГЕЙМИФИКАЦИИ':
+						isColumnHeader = true;
+						break;
+				}
+
+				if (!isColumnHeader) {
+					const route =
+						target.dataset.btnName ||
+						target.parentElement.dataset.btnName;
+					this.$router.push(`/${route}`);
+				}
+			},
+		},
 	};
 </script>
 
@@ -98,6 +104,9 @@
 		width: 23%;
 		display: flex;
 		flex-direction: column;
+		.cursor {
+			cursor: none;
+		}
 	}
 	.bgColor {
 		background: $mainColor#000;
