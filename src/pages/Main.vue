@@ -62,11 +62,11 @@
 </template>
 
 <script>
-	import MyNavbar from '@/components/Navbar.vue';
+	//import MyNavbar from '@/components/Navbar.vue';
 	export default {
-		components: {
+		/* components: {
 			MyNavbar,
-		},
+		} */
 		name: 'my-main',
 		methods: {
 			goAnotherPage(target) {

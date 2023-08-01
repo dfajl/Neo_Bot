@@ -1,8 +1,11 @@
 import { createApp } from 'vue';
 import App from './App.vue';
+import Components from '@/components/index.js'; //глобальная регистрация компонентов
 import router from './router/router';
 import store from './store';
-//import './scss/variables.scss';
+
+console.log(Components);
+const app = createApp(App);
 
 // Vuetify
 //import '@mdi/font/css/materialdesignicons.css';
@@ -17,4 +20,8 @@ const vuetify = createVuetify({
 	directives,
 });
 
-createApp(App).use(vuetify).use(store).use(router).mount('#app');
+Components.forEach((component) => {
+	app.component(component.name, component);
+});
+
+app.use(vuetify).use(store).use(router).mount('#app');

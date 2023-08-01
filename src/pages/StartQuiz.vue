@@ -1,4 +1,5 @@
 <template>
+	<my-navbar></my-navbar>
 	<h1>Запуск опроса</h1>
 </template>
 

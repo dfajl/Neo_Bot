@@ -1,4 +1,5 @@
 <template>
+	<my-navbar></my-navbar>
 	<h1>Верификация</h1>
 </template>
 
