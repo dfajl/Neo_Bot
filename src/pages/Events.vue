@@ -1,6 +1,6 @@
 <template>
 	<my-navbar></my-navbar>
-	<h1>События</h1>
+	<my-checkBox-filters></my-checkBox-filters>
 </template>
 
 <script>

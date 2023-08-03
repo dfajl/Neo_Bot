@@ -47,7 +47,7 @@
 	};
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	.mainWrapper {
 		margin-top: 40px;
 		display: flex;

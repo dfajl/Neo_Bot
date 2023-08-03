@@ -1,6 +1,15 @@
 <template>
 	<my-navbar></my-navbar>
-	<h1>Верификация</h1>
+	<my-checkBox-filters>
+		<div class="inputWrap">
+			<label for="allFilters">Вывести все</label>
+			<input type="checkbox" id="allFilters" />
+		</div>
+		<div class="inputWrap">
+			<label for="forChecking">Вывести на проверку</label>
+			<input type="checkbox" id="forChecking" />
+		</div>
+	</my-checkBox-filters>
 </template>
 
 <script>

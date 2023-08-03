@@ -5,68 +5,42 @@
 			<v-btn
 				elevation="24"
 				data-btn-header="true"
-				class="mt-1 bgColor font-weight-bold cursor"
+				class="mt-1 mb-4 bgColor font-weight-bold cursor"
 			>
 				Контроль геймификации
 			</v-btn>
-			<v-btn data-btn-name="quests" elevation="2" class="mt-8 bgColor">
-				Квесты
-			</v-btn>
-			<v-btn data-btn-name="goods" elevation="2" class="mt-6 bgColor">
-				Товары
-			</v-btn>
-			<v-btn
-				data-btn-name="verification"
-				elevation="2"
-				class="mt-6 bgColor"
-			>
+			<my-main-button data-btn-name="quests"> Квесты </my-main-button>
+			<my-main-button data-btn-name="goods"> Товары </my-main-button>
+			<my-main-button data-btn-name="verification">
 				Верификация
-			</v-btn>
-			<v-btn
-				data-btn-name="administration"
-				elevation="2"
-				class="mt-6 bgColor"
-			>
+			</my-main-button>
+			<my-main-button data-btn-name="administration">
 				Администрирование
-			</v-btn>
+			</my-main-button>
 		</div>
 		<div class="imgWrapper">
-			<img src="../assets/images/bot_and_neo.png" alt="" />
+			<img src="../assets/images/bot_and_neo.png" alt="Neo_and_Bot" />
 		</div>
 		<div class="buttonColumn" @click="goAnotherPage($event.target)">
 			<v-btn
 				elevation="24"
-				class="mt-1 bgColor font-weight-bold cursor"
+				class="mt-1 mb-4 bgColor font-weight-bold cursor"
 				data-btn-header="true"
 			>
 				Администрирование бота
 			</v-btn>
-			<v-btn
-				data-btn-name="startQuiz"
-				elevation="2"
-				class="mt-8 bgColor w-20"
-			>
+			<my-main-button data-btn-name="startQuiz">
 				Запуск опроса
-			</v-btn>
-			<v-btn data-btn-name="orders" elevation="2" class="mt-6 bgColor">
-				Заказы
-			</v-btn>
-			<v-btn data-btn-name="reports" elevation="2" class="mt-6 bgColor">
-				Отчеты
-			</v-btn>
-			<v-btn data-btn-name="events" elevation="2" class="mt-6 bgColor">
-				События
-			</v-btn>
+			</my-main-button>
+			<my-main-button data-btn-name="orders"> Заказы </my-main-button>
+			<my-main-button data-btn-name="reports"> Отчеты </my-main-button>
+			<my-main-button data-btn-name="events"> События </my-main-button>
 		</div>
 	</div>
 </template>
 
 <script>
-	//import MyNavbar from '@/components/Navbar.vue';
 	export default {
-		/* components: {
-			MyNavbar,
-		} */
 		name: 'my-main',
 		methods: {
 			goAnotherPage(target) {
@@ -108,10 +82,7 @@
 			cursor: none;
 		}
 	}
-	.bgColor {
-		background: $mainColor#000;
-		background: $mainGradient;
-	}
+
 	.imgWrapper {
 		margin-left: 40px;
 		margin-right: 40px;

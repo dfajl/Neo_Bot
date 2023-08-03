@@ -3,5 +3,7 @@
     и не писать везде import
 */
 import MyNavbar from '@/components/Navbar';
+import MyCheckBoxFilters from '@/components/CheckBoxFilters';
+import MyMainButton from '@/components/MainButton';
 
-export default [MyNavbar];
+export default [MyNavbar, MyCheckBoxFilters, MyMainButton];
